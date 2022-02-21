@@ -1,1 +1,1 @@
-# studybuddyfrontend
+# Study Buddy Frontend
