@@ -1,0 +1,19 @@
+.sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    background-color: white;
+    max-width: 15vw;
+    height: 100vh;
+    padding: 0;
+    padding-right: 10px;
+    font-size: 2vw;
+}
+
+@media only screen and (max-width:500px) {
+    .sidebar a {
+        font-size: 3.5vw;
+        padding: 2vw 0 !important;
+    } 
+}
