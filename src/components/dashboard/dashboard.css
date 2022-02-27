@@ -1,0 +1,52 @@
+
+.contain {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.dashboard-view {
+    width: 86vw;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white;
+    margin: auto;
+}
+
+.dashboard-view .alert-message{
+    font-size: 3vw !important;
+    margin: 0% !important;
+    margin-top: 20vw !important;
+    text-align: center;
+}
+
+.dashboard-view ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.dashboard-view ul li {
+    float: left;
+}
+
+.card{
+    margin: 2.5vw 0;
+    width: 230px !important;
+}
+
+.card-area{
+    display: flex;
+    align-items: center;
+}
+
+.card-text,.card-title{
+    font-family: 'Shippori Antique', sans-serif !important;
+}
+
+.card-img-top {
+    height: 150px !important;
+}
