@@ -1,0 +1,30 @@
+.notification-view{
+    float: right;
+    width: 86vw;
+    min-height: 100vh;
+    padding: 2vw;
+    background-color: white;
+}
+
+.notification-view .info{
+    border-radius: 5px;
+    padding: 0.5vw;
+}
+
+.notification-view .info:hover{
+    cursor: default;
+    background-color: rgba(212, 212, 212, 0.39);
+}
+
+.notification-view .heading{
+    font-family: 'Shippori Antique', sans-serif;
+    font-size: 2.5vw;
+}
+
+.notification-view .message{
+    font-size: 1.5vw;
+}
+
+.notification-view hr{
+    margin: 0;
+}
