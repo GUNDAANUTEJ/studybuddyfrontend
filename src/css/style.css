@@ -1,0 +1,51 @@
+* {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.login-form,.signup-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 60px auto;
+    color: white;
+    background-color: #394b59;
+    box-shadow: 0px 3px 5px black;
+    animation: boom 1s;
+}
+
+.login-form{
+    width: 300px;
+}
+
+.signup-form{
+    width:400px;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.801);
+    backdrop-filter: blur(2px);
+    color: green;
+}
+
+.login-form input {
+    width: 98%;
+    font-size: 13px !important;
+    outline: invert !important;
+}
+
+@media only screen and (max-width:400px) {
+    .signup-form{
+        width: 300px !important;
+    }
+}
+
+@keyframes boom{
+    to{
+        transform: scale(1,1);
+    }
+    from{
+        transform: scale(0,0);
+    }
+}
