@@ -2,17 +2,17 @@ const SidebarData = [
     {
         icon: "fas fa-tachometer-alt",
         title: "Dashboard",
-        link: '/dashboard'
+        link: '/home'
     },
     {
         icon: "fas fa-graduation-cap",
         title: "Courses",
-        link: '/course'
+        link: '/home/course'
     },
     {
         icon: "fas fa-bell",
         title: "Notification",
-        link: '/notification'
+        link: '/home/notification'
     } 
 ]
 

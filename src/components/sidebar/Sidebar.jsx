@@ -34,7 +34,7 @@ const Sidebar = () => {
                                         <OverlayTrigger
                                             placement="right"
                                             overlay={renderTooltip(data.title)}>
-                                            <NavLink exact to={data.link} activeClassName="active text-green" className="nav-link py-3 border-bottom text-black">
+                                            <NavLink to={data.link} className="nav-link py-3 border-bottom text-black">
                                                 <i className={data.icon} />
                                             </NavLink>
                                         </OverlayTrigger>
