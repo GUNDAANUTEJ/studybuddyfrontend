@@ -7,7 +7,6 @@ import { CardActionArea } from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import axios from "axios";
-// import IconButton from '@mui/material/IconButton';
 
 
 const DataFetching = () => {
@@ -19,8 +18,10 @@ const DataFetching = () => {
                 return result.data
             })
             .then((data) => {
-                if(!data)
-                    document.getElementById('message').innerHTML="Please upload course schedule file sheet..."
+                console.log(data)
+                if (!data) {
+                    document.getElementById('message').innerHTML = "Please upload course schedule file sheet..."
+                }
                 setData(data)
             })
     }
@@ -34,10 +35,10 @@ const DataFetching = () => {
             {
                 !Data.length ?
                     <h1 className="text-secondary alert-message" id="message" style={{ margin: "200px", height: "100vh", textShadow: "none", fontSize: "2rem" }}> </h1> :
-                    <ul className="fetch-data">
+                    <div className="fetch-data">
                         {Data.map((data, index) => {
                             return (
-                                <li key={index}>
+                                <div key={index}>
                                     <Card className="card" style={{ width: "15rem" }}>
                                         <CardActionArea className="card-area">
                                             <CardHeader
@@ -61,10 +62,10 @@ const DataFetching = () => {
                                             </CardContent>
                                         </CardActionArea>
                                     </Card>
-                                </li>
+                                </div>
                             )
                         })}
-                    </ul>
+                    </div>
             }
         </>
 

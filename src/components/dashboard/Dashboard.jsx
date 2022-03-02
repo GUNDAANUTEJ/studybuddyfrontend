@@ -1,32 +1,28 @@
 import { useEffect } from "react"
-import { useHistory } from "react-router"
 import axios from 'axios'
 import './dashboard.css'
-import Sidebar from "../sidebar/Sidebar"
 import DataFetching from './DataFetching'
+import {  useNavigate } from "react-router-dom"
 
 const Dashboard = () => {
 
-    const history = useHistory()
+    const navigate = useNavigate();
 
     useEffect(() => {
         const callBack = async () => {
             await axios.get("/dashboard")
                 .then((result) => {
                     if (!result.data)
-                        history.push('/')
+                        navigate('/')
                 })
         }
         callBack();
-    }, [history]);
+    }, [navigate]);
 
     return (
         <>
-            <div className="contain">
-                <Sidebar />
-                <div className="dashboard-view">
-                    <DataFetching />
-                </div>
+            <div className="dashboard-view">
+                <DataFetching />
             </div>
         </>
     )

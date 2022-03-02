@@ -1,34 +1,32 @@
-import { useHistory } from "react-router-dom"
 import { useEffect } from "react"
 import './course.css'
-import Sidebar from "../sidebar/Sidebar"
-import path from 'path'
 import axios from 'axios'
+import { useNavigate } from "react-router-dom"
 
 const Course = () => {
 
-    const history = useHistory()
+    const navigate = useNavigate();
 
     useEffect(() => {
         const callBack = async () => {
             await axios.get("/dashboard")
                 .then((result) => {
                     if (!result.data)
-                        history.push('/')
+                        navigate('/')
                 })
         }
         callBack();
-    }, [history]);
+    }, [navigate]);
 
     const defaultBtnActive = () => {
         document.getElementById('inputFile').click();
     }
 
-    const checkFile = (event) => {
+    function checkFile(event) {
         const file = event.target.value
         const fileName = file.substring(file.lastIndexOf("\\") + 1)
-
-        if (path.extname(file) !== '.json' && file !== "") {
+        const fileExtension = file.split('.').pop();
+        if (fileExtension !== 'json' && file !== "") {
             event.preventDefault()
             alert('Please upload .json file...!')
         }
@@ -45,11 +43,12 @@ const Course = () => {
 
         var data = new FormData()
         data.append('file', inputFile.files[0])
-        axios.post('/course',data,{})
+        console.log(data.values())
+        axios.post('/course', data, {})
             .then((data) => {
                 console.log(data)
                 if (data.data) {
-                    history.push('/dashboard')
+                    navigate('/home')
                 }
                 else {
                     alert(data.data.error)
@@ -60,7 +59,6 @@ const Course = () => {
     return (
         <>
             <div className="course-contain">
-                <Sidebar />
                 <div className="course-view">
                     <div className="file-container">
                         <div className="wrapper" onClick={defaultBtnActive}>
