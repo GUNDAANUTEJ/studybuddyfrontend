@@ -44,7 +44,7 @@ const Course = () => {
         var data = new FormData()
         data.append('file', inputFile.files[0])
         console.log(data.values())
-        axios.post('/course', data, {})
+        axios.post('https://study-buddy-bckend.herokuapp.com/course', data, {})
             .then((data) => {
                 console.log(data)
                 if (data.data) {
