@@ -9,7 +9,7 @@ const Course = () => {
 
     useEffect(() => {
         const callBack = async () => {
-            await axios.get("/dashboard")
+            await axios.get("https://study-buddy-bckend.herokuapp.com/dashboard")
                 .then((result) => {
                     if (!result.data)
                         navigate('/')
