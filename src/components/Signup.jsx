@@ -43,7 +43,7 @@ const Signup = () => {
             const data = await result.json();
 
             if (data.success) {
-                window.location.replace("/dashboard")
+                window.location.replace("/")
             } else {
                 window.alert(data.error)
             }
