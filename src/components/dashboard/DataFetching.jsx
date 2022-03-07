@@ -21,9 +21,10 @@ const DataFetching = () => {
                 console.log(data)
                 if (!data) {
                     document.getElementById('message').innerHTML = "Please upload course schedule file sheet..."
+                }else{
+                    setData(data)
                 }
-                setData(data)
-            })
+           })
     }
 
     useEffect(() => {
