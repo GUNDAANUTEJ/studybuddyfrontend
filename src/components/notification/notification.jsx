@@ -13,9 +13,8 @@ const Notification = () => {
             await axios.get("https://study-buddy-bckend.herokuapp.com/dashboard")
                 .then((result) => {
                     if (!result.data)
-                        navigate('/')
+                        navigate('/dashboard')
                 })
-        }
         callBack();
     }, [navigate]);
 
