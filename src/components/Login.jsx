@@ -18,7 +18,7 @@ const Login = () => {
         } else {
             const email = Email
             const password = Pass
-            const result = await fetch("/login", {
+            const result = await fetch("https://study-buddy-bckend.herokuapp.com/login", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
