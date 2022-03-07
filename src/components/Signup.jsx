@@ -30,7 +30,7 @@ const Signup = () => {
         if (!(valid.isEmail(Data.email)) || !(Data.password.length >= 8)) {
             alert('enter valid email or strong password!!!')
         } else {
-            const result = await fetch("/signup", {
+            const result = await fetch("https://study-buddy-bckend.herokuapp.com/signup", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
