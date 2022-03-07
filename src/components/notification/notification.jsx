@@ -6,17 +6,17 @@ import { useNavigate } from "react-router-dom"
 
 const Notification = () => {
 
-    const navigate = useNavigate()
+//     const navigate = useNavigate()
 
-    useEffect(() => {
-        const callBack = async () => {
-            await axios.get("https://study-buddy-bckend.herokuapp.com/dashboard")
-                .then((result) => {
-                    if (!result.data)
-                        navigate('/dashboard')
-                })
-        callBack();
-    }, [navigate]);
+//     useEffect(() => {
+//         const callBack = async () => {
+//             await axios.get("https://study-buddy-bckend.herokuapp.com/dashboard")
+//                 .then((result) => {
+//                     if (!result.data)
+//                         navigate('/dashboard')
+//                 })
+//         callBack();
+//     }, [navigate]);
 
     return (
         <>
