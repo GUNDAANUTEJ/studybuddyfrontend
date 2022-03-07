@@ -13,7 +13,7 @@ const DataFetching = () => {
     const [Data, setData] = useState([])
 
     const callBack = async () => {
-        await axios.get("/fetchData")
+        await axios.get("https://study-buddy-bckend.herokuapp.com/fetchData")
             .then((result) => {
                 return result.data
             })
