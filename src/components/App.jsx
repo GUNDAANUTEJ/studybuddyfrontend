@@ -12,7 +12,7 @@ import Home from './Home';
 import Footer from './Footer';
 
 const App = () => {
-    return (<>
+    return(<>
         <BrowserRouter>
             <Routes>
                 <Route exact path="/" element={<Index />} />
