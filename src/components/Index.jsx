@@ -8,18 +8,18 @@ const Index = () => {
 
     const navigator = useNavigate();
 
-    useEffect(() => {
-        const callMethod = async () => {
-            await axios.get("https://study-buddy-bckend.herokuapp.com/auth")
-                .then((result) => {
-                    if (result.data.success)
-                        navigator('/home');
-                }).catch((err) => {
-                    console.log(err);
-                })
-        }
-        callMethod();
-    }, [navigator])
+//     useEffect(() => {
+//         const callMethod = async () => {
+//             await axios.get("https://study-buddy-bckend.herokuapp.com/auth")
+//                 .then((result) => {
+//                     if (result.data.success)
+//                         navigator('/home');
+//                 }).catch((err) => {
+//                     console.log(err);
+//                 })
+//         }
+//         callMethod();
+//     }, [navigator])
 
     return (
         <>
