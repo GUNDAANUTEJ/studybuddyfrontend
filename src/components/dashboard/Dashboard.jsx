@@ -8,16 +8,16 @@ const Dashboard = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const callBack = async () => {
-            await axios.get("https://study-buddy-bckend.herokuapp.com/dashboard")
-                .then((result) => {
-                    if (!result.data)
-                        navigate('/')
-                })
-        }
-        callBack();
-    }, [navigate]);
+//     useEffect(() => {
+//         const callBack = async () => {
+//             await axios.get("https://study-buddy-bckend.herokuapp.com/dashboard")
+//                 .then((result) => {
+//                     if (!result.data)
+//                         navigate('/')
+//                 })
+//         }
+//         callBack();
+//     }, [navigate]);
 
     return (
         <>
