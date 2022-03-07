@@ -10,7 +10,7 @@ import Dashboard from "./dashboard/Dashboard"
 
 const Home = () => {
 
-    const navigate = useNavigate();
+//     const navigate = useNavigate();
 
 //     useEffect(() => {
 //         const callBack = async () => {
