@@ -10,7 +10,7 @@ const Index = () => {
 
     useEffect(() => {
         const callMethod = async () => {
-            await axios.get("https://study-buddy-bckend.herokuapp.com/auth", { withCredentials: true , headers: { "access-control-allow-origin": "*" }})
+            await axios.get("https://study-buddy-bckend.herokuapp.com/auth", { withCredentials: true , headers: { "access-control-allow-origin": "https://study-buddy-frontend.herokuapp.com" }})
                 .then((result) => {
                     if (result.data.success)
                         navigator('/home');
