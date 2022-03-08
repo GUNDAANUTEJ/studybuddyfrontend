@@ -12,9 +12,8 @@ import axios from "axios";
 const DataFetching = () => {
     const [Data, setData] = useState([])
 
-    const callBack = async () => {
-        const token = localStorage.getItem("token");
-        await axios.post("https://study-buddy-bckend.herokuapp.com/fetchData", { token })
+    const token = localStorage.getItem("token");
+    await axios.post("https://study-buddy-bckend.herokuapp.com/fetchData", { token })
             .then((result) => {
                 console.log(result.data)
                 if (result.data.success) {
@@ -23,11 +22,6 @@ const DataFetching = () => {
                      document.getElementById('message').innerHTML = "Please upload course schedule file sheet...";
                 }
             })
-    }
-
-    useEffect(() => {
-        callBack();
-    }, []);
 
     return (
         <>
@@ -36,7 +30,7 @@ const DataFetching = () => {
                     <h1 className="text-secondary alert-message" id="message" style={{ margin: "200px", height: "100vh", textShadow: "none", fontSize: "2rem" }}> </h1> :
                     <div className="fetch-data">
                         {
-                        Data.forEach((data, index) => {
+                        Data.map((data, index) => {
                             return (
                                 <div key={index}>
                                     <Card className="card" style={{ width: "15rem" }}>
