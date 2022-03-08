@@ -16,14 +16,12 @@ const DataFetching = () => {
         const token = localStorage.getItem("token");
         await axios.post("https://study-buddy-bckend.herokuapp.com/fetchData", { token })
             .then((result) => {
-                return result.data
-            })
-            .then((data) => {
-                console.log(data)
-                if (!data) {
+                console.log(result.data)
+                if (!result.data.success) {
                     document.getElementById('message').innerHTML = "Please upload course schedule file sheet..."
+                }else{
+                    setData(result.data.data);
                 }
-                setData(data)
             })
     }
 
