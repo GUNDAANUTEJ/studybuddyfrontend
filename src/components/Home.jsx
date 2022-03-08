@@ -10,18 +10,19 @@ import Dashboard from "./dashboard/Dashboard"
 
 const Home = () => {
 
-//     const navigate = useNavigate();
+    const navigate = useNavigate();
 
-//     useEffect(() => {
-//         const callBack = async () => {
-//             await axios.get("https://study-buddy-bckend.herokuapp.com/dashboard")
-//                 .then((result) => {
-//                     if (!result.data)
-//                         navigate('/')
-//                 })
-//         }
-//         callBack();
-//     }, [navigate]);
+    useEffect(() => {
+        const callBack = async () => {
+            const token = localStorage.getItem('token');
+            await axios.post("https://study-buddy-bckend.herokuapp.com/auth", { token })
+                .then((result) => {
+                    if (!result.data.success)
+                        navigate('/')
+                })
+        }
+        callBack();
+    }, [navigate]);
 
     return (
         <>
