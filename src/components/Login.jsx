@@ -37,6 +37,7 @@ const Login = () => {
                 window.alert(data.error)
             }
         }
+    }
 
     return (
         <>
