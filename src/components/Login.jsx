@@ -32,7 +32,7 @@ const Login = () => {
             }).then((data) => {
                 if (data.success) {
                     localStorage.setItem("token", data.token);
-                    navigate("/home")
+                    navigate("/home");
                 } else {
                     window.alert(data.error)
                 }
