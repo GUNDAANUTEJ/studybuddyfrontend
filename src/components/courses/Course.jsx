@@ -7,16 +7,17 @@ const Course = () => {
 
     const navigate = useNavigate();
 
-//     useEffect(() => {
-//         const callBack = async () => {
-//             await axios.get("https://study-buddy-bckend.herokuapp.com/dashboard")
-//                 .then((result) => {
-//                     if (!result.data)
-//                         navigate('/')
-//                 })
-//         }
-//         callBack();
-//     }, [navigate]);
+    useEffect(() => {
+        const callBack = async () => {
+            const token = localStorage.getItem("token");
+            await axios.post("https://study-buddy-bckend.herokuapp.com/auth", { token })
+                .then((result) => {
+                    if (!result.data.success)
+                        navigate('/')
+                })
+        }
+        callBack();
+    }, [navigate]);
 
     const defaultBtnActive = () => {
         document.getElementById('inputFile').click();
@@ -43,16 +44,14 @@ const Course = () => {
 
         var data = new FormData()
         data.append('file', inputFile.files[0])
-        console.log(data.values())
-        axios.post('https://study-buddy-bckend.herokuapp.com/course', data, {})
-            .then((data) => {
-                console.log(data)
-                if (data.data) {
-                    navigate('/home')
-                }
-                else {
-                    alert(data.data.error)
-                }
+        data.append('token', localStorage.getItem('token'))
+        axios.post('https://study-buddy-bckend.herokuapp.com/course', data)
+            .then((result) => {
+                console.log(result)
+                if (result.data.success)
+                    navigate('/home');
+                else
+                    alert(result.data.error)
             })
     }
 
