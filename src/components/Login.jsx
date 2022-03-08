@@ -2,7 +2,6 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../css/style.css'
 import { Link, useNavigate } from 'react-router-dom'
 import valid from 'validator'
-import axios from 'axios'
 import { useState } from 'react'
 
 const Login = () => {
