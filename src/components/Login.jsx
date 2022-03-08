@@ -2,6 +2,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../css/style.css'
 import { Link, useNavigate } from 'react-router-dom'
 import valid from 'validator'
+import axios from 'axios'
 import { useState } from 'react'
 
 const Login = () => {
@@ -18,8 +19,7 @@ const Login = () => {
         } else {
             const email = Email
             const password = Pass
-            const result = await fetch("http://localhost:3300/login", {
-                method: "POST",
+            await axios.post("http://localhost:3300/login",
                 headers: {
                     "content-type": "application/json",
                     "credentials": true,
@@ -27,20 +27,16 @@ const Login = () => {
                 body: JSON.stringify({
                     email, password
                 })
+            }).then((data))=>{
+                const data = await result.json();
+                if (data.success) {
+                    console.log(data.token);
+                }
+                else {
+                    window.alert(data.error)
+                }
             })
-
-
-            const data = await result.json();
-
-            if (data.success) {
-                console.log(data.token);
-            } else {
-                window.alert(data.error)
-            }
         }
-
-
-    }
 
     return (
         <>
