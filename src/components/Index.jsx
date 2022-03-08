@@ -3,23 +3,26 @@ import '../css/index.css'
 import axios from 'axios'
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 const Index = () => {
 
     const navigator = useNavigate();
 
-//     useEffect(() => {
-//         const callMethod = async () => {
-//             await axios.get("https://study-buddy-bckend.herokuapp.com/auth")
-//                 .then((result) => {
-//                     if (result.data.success)
-//                         navigator('/home');
-//                 }).catch((err) => {
-//                     console.log(err);
-//                 })
-//         }
-//         callMethod();
-//     }, [navigator])
+    useEffect(() => {
+        const callMethod = async () => {
+            const token = localStorage.getItem("token");
+            await axios.post("https://study-buddy-bckend.herokuapp.com/auth", { token })
+                .then((result) => {
+                    if (result.data.success) {
+                        navigator('/home');
+                    }
+                }).catch((err) => {
+                    console.log(err);
+                })
+        }
+        callMethod();
+    }, [navigator])
 
     return (
         <>
@@ -30,6 +33,7 @@ const Index = () => {
                     <a href="/signup"><button className="btn btn-danger py-2 px-5">SignUp</button></a>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
