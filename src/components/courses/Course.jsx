@@ -50,7 +50,7 @@ const Course = () => {
                 console.log(result)
                 if (result.data.success){
                     console.log(result.data);
-//                     navigate('/home');
+                    navigate('/home');
                 }
                 else
                     alert(result.data.error)
