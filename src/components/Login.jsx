@@ -34,7 +34,6 @@ const Login = () => {
 
             if (data.success) {
                 console.log(data.token);
-                navigate("/home")
             } else {
                 window.alert(data.error)
             }
