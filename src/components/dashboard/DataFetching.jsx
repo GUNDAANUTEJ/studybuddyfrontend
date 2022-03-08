@@ -9,7 +9,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import axios from "axios";
 
 
-const DataFetching = () => {
+const DataFetching = async () => {
     const [Data, setData] = useState([])
 
     const token = localStorage.getItem("token");
