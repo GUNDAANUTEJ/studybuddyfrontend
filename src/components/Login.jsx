@@ -32,6 +32,7 @@ const Login = () => {
             const data = await result.json();
 
             if (data.success) {
+                console.log(data.token);
                 navigate("/home")
             } else {
                 window.alert(data.error)
