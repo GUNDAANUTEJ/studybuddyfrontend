@@ -20,13 +20,11 @@ const Login = () => {
             const email = Email
             const password = Pass
             await axios.post("http://localhost:3300/login",
+                             {email,password},
                 headers: {
                     "content-type": "application/json",
                     "credentials": true,
-                },
-                body: JSON.stringify({
-                    email, password
-                })
+                }
             }).then((result))=>{
                 const data = await result.json();
                 if (data.success) {
