@@ -3,6 +3,7 @@ import '../css/style.css'
 import { Link, useNavigate } from 'react-router-dom'
 import valid from 'validator'
 import { useState } from 'react'
+import Footer from './Footer';
 
 const Login = () => {
 
@@ -18,7 +19,7 @@ const Login = () => {
         } else {
             const email = Email
             const password = Pass
-            const result = await fetch("https://study-buddy-bckend.heroku.com/login", {
+            await fetch("https://study-buddy-bckend.heroku.com/login", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -26,16 +27,18 @@ const Login = () => {
                 body: JSON.stringify({
                     email, password
                 })
+            }).then(async (data) => {
+                return await data.json();
+            }).then((data) => {
+                if (data.success) {
+                    localStorage.setItem("token", data.token);
+                    navigate("/home")
+                } else {
+                    window.alert(data.error)
+                }
+            }).catch((err) => {
+                console.log(err);
             })
-
-
-            const data = await result.json();
-
-            if (data.success) {
-                navigate("/home")
-            } else {
-                window.alert(data.error)
-            }
         }
     }
 
@@ -59,6 +62,7 @@ const Login = () => {
                     <h6 className="text-white">New user ! <Link to="/signup" className="text-decoration-none">SignUp</Link></h6>
                 </div>
             </form>
+            <Footer />
         </>
     )
 }
