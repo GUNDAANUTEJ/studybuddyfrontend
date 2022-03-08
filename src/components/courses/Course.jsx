@@ -45,14 +45,14 @@ const Course = () => {
         var data = new FormData()
         data.append('file', inputFile.files[0])
         data.append('token', localStorage.getItem('token'))
-        axios.post('https://study-buddy-bckend.herokuapp.com/course', data)
-            .then((result) => {
-                console.log(result)
-                if (result.data.success)
-                    navigate('/home');
-                else
-                    alert(result.data.error)
-            })
+//         axios.post('https://study-buddy-bckend.herokuapp.com/course', data)
+//             .then((result) => {
+//                 console.log(result)
+//                 if (result.data.success)
+//                     navigate('/home');
+//                 else
+//                     alert(result.data.error)
+//             })
     }
 
     return (
