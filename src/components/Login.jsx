@@ -27,7 +27,7 @@ const Login = () => {
                 body: JSON.stringify({
                     email, password
                 })
-            }).then((data))=>{
+            }).then((data ))=>{
                 const data = await result.json();
                 if (data.success) {
                     console.log(data.token);
