@@ -35,35 +35,36 @@ const DataFetching = () => {
                 !Data.length ?
                     <h1 className="text-secondary alert-message" id="message" style={{ margin: "200px", height: "100vh", textShadow: "none", fontSize: "2rem" }}> </h1> :
                     <div className="fetch-data">
-                        {Data.map((data, index) => {
-                            return (
-                                <div key={index}>
-                                    <Card className="card" style={{ width: "15rem" }}>
-                                        <CardActionArea className="card-area">
-                                            <CardHeader
-                                                action={
-                                                    <MoreVertIcon />
-                                                }
-                                            />
-                                            <CardMedia
-                                                component="img"
-                                                image="https://picsum.photos/200/"
-                                                alt="Card img"
-                                                className="card-img-top"
-                                            />
-                                            <CardContent className="card-body">
-                                                <Typography gutterBottom className="card-title text-primary" component="div">
-                                                    {data.subject}
-                                                </Typography>
-                                                <Typography variant="body2" className="card-text" color="text.secondary">
-                                                    {data.prof}
-                                                </Typography>
-                                            </CardContent>
-                                        </CardActionArea>
-                                    </Card>
-                                </div>
-                            )
-                        })}
+//                         {Data.map((data, index) => {
+//                             return (
+//                                 <div key={index}>
+//                                     <Card className="card" style={{ width: "15rem" }}>
+//                                         <CardActionArea className="card-area">
+//                                             <CardHeader
+//                                                 action={
+//                                                     <MoreVertIcon />
+//                                                 }
+//                                             />
+//                                             <CardMedia
+//                                                 component="img"
+//                                                 image="https://picsum.photos/200/"
+//                                                 alt="Card img"
+//                                                 className="card-img-top"
+//                                             />
+//                                             <CardContent className="card-body">
+//                                                 <Typography gutterBottom className="card-title text-primary" component="div">
+//                                                     {data.subject}
+//                                                 </Typography>
+//                                                 <Typography variant="body2" className="card-text" color="text.secondary">
+//                                                     {data.prof}
+//                                                 </Typography>
+//                                             </CardContent>
+//                                         </CardActionArea>
+//                                     </Card>
+//                                 </div>
+//                             )
+//                         })}
+                        {Data.length}
                     </div>
             }
         </>
