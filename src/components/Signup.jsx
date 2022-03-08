@@ -3,6 +3,7 @@ import '../css/style.css'
 import { Link } from 'react-router-dom'
 import valid from 'validator'
 import { useState } from 'react'
+import Footer from './Footer';
 
 const Signup = () => {
     const [Data, setData] = useState({
@@ -30,7 +31,7 @@ const Signup = () => {
         if (!(valid.isEmail(Data.email)) || !(Data.password.length >= 8)) {
             alert('enter valid email or strong password!!!')
         } else {
-            const result = await fetch("https://study-buddy-bckend.herokuapp.com/signup", {
+            await fetch("/signup", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -38,15 +39,19 @@ const Signup = () => {
                 body: JSON.stringify({
                     fname, mname, lname, sid, email, mobile, bod, password
                 })
+            }).then(async (data) => {
+                return await data.json();
+            }).then((data) => {
+                if (data.success) {
+                    localStorage.setItem("token", data.token);
+                    window.location.replace("/home")
+                } else {
+                    window.alert(data.error)
+                }
+            }).catch((err) => {
+                console.log(err);
             })
 
-            const data = await result.json();
-
-            if (data.success) {
-                window.location.replace("/")
-            } else {
-                window.alert(data.error)
-            }
         }
     }
 
@@ -94,6 +99,7 @@ const Signup = () => {
                     <h6>Already registered ! <Link to="/login" className="text-decoration-none">Login</Link></h6>
                 </div>
             </form>
+            <Footer />
         </>
     )
 }
