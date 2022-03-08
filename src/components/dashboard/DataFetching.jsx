@@ -35,7 +35,7 @@ const DataFetching = () => {
                 !Data.length ?
                     <h1 className="text-secondary alert-message" id="message" style={{ margin: "200px", height: "100vh", textShadow: "none", fontSize: "2rem" }}> </h1> :
                     <div className="fetch-data">
-                        <h1>{Data.length}</h1>
+                        <h1>Hii</h1>
 //                         {Data.map((data, index) => {
 //                             return (
 //                                 <div key={index}>
