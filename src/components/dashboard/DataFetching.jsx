@@ -13,18 +13,18 @@ const DataFetching = () => {
     const [Data, setData] = useState([])
 
     const callBack = async () => {
-        await axios.get("https://study-buddy-bckend.herokuapp.com/fetchData")
+        const token = localStorage.getItem("token");
+        await axios.post("https://study-buddy-bckend.herokuapp.com/fetchData", { token })
             .then((result) => {
                 return result.data
             })
             .then((data) => {
                 console.log(data)
                 if (!data) {
-//                     document.getElementById('message').innerHTML = "Please upload course schedule file sheet..."
-                }else{
-                    setData(data)
+                    document.getElementById('message').innerHTML = "Please upload course schedule file sheet..."
                 }
-           })
+                setData(data)
+            })
     }
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const DataFetching = () => {
         <>
             {
                 !Data.length ?
-                    <h1 className="text-secondary alert-message" id="message" style={{ margin: "200px", height: "100vh", textShadow: "none", fontSize: "2rem" }}>Please upload course schedule file sheet... </h1> :
+                    <h1 className="text-secondary alert-message" id="message" style={{ margin: "200px", height: "100vh", textShadow: "none", fontSize: "2rem" }}> </h1> :
                     <div className="fetch-data">
                         {Data.map((data, index) => {
                             return (
