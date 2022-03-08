@@ -48,8 +48,10 @@ const Course = () => {
         axios.post('https://study-buddy-bckend.herokuapp.com/course', data,)
             .then((result) => {
                 console.log(result)
-                if (result.data.success)
+                if (result.data.success){
+                    console.log(result.data);
 //                     navigate('/home');
+                }
                 else
                     alert(result.data.error)
             })
