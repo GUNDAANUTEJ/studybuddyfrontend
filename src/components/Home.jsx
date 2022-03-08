@@ -4,7 +4,6 @@ import './dashboard/dashboard.css'
 import Sidebar from "./sidebar/Sidebar"
 import Course from './courses/Course'
 import Notification from './notification/notification'
-// import DataFetching from './DataFetching'
 import { Route, Routes, useNavigate } from "react-router-dom"
 import Dashboard from "./dashboard/Dashboard"
 
