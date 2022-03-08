@@ -9,30 +9,35 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import axios from "axios";
 
 
-const DataFetching = async () => {
+const DataFetching = () => {
     const [Data, setData] = useState([])
-    const [loading, setLoading] = useState(true)
 
-    const token = localStorage.getItem("token");
-    await axios.post("https://study-buddy-bckend.herokuapp.com/fetchData", { token })
+    const callBack = async () => {
+        const token = localStorage.getItem('token')
+        await axios.post("https://study-buddy-bckend.herokuapp.com/fetchData", { token })
             .then((result) => {
-                console.log(result.data)
-                if (result.data.success) {
-                    setData(result.data.data);
-                    setLoading(false);
-                }else{
-                     document.getElementById('message').innerHTML = "Please upload course schedule file sheet...";
-                }
+                return result.data
             })
+            .then((data) => {
+                console.log(data)
+                if (!data) {
+                    document.getElementById('message').innerHTML = "Please upload course schedule file sheet..."
+                }
+                setData(data)
+            })
+    }
+
+    useEffect(() => {
+        callBack();
+    }, []);
 
     return (
         <>
             {
-                !loading ?
+                !Data.length ?
                     <h1 className="text-secondary alert-message" id="message" style={{ margin: "200px", height: "100vh", textShadow: "none", fontSize: "2rem" }}> </h1> :
                     <div className="fetch-data">
-                        {
-                        Data.map((data, index) => {
+                        {Data.map((data, index) => {
                             return (
                                 <div key={index}>
                                     <Card className="card" style={{ width: "15rem" }}>
@@ -60,8 +65,7 @@ const DataFetching = async () => {
                                     </Card>
                                 </div>
                             )
-                        })
-                    }
+                        })}
                     </div>
             }
         </>
