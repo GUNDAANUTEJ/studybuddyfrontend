@@ -19,21 +19,24 @@ const Login = () => {
         } else {
             const email = Email
             const password = Pass
-            await axios.post("http://localhost:3300/login",
-                             {email,password},
+            const result = await fetch("http://localhost:3300/login", {
+                method: "POST",
                 headers: {
-                    "content-type": "application/json",
-                    "credentials": true,
-                }
-            }).then((result))=>{
-                const data = await result.json();
-                if (data.success) {
-                    console.log(data.token);
-                }
-                else {
-                    window.alert(data.error)
-                }
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    email, password
+                })
             })
+
+
+            const data = await result.json();
+
+            if (data.success) {
+                navigate("/home")
+            } else {
+                window.alert(data.error)
+            }
         }
 
     return (
