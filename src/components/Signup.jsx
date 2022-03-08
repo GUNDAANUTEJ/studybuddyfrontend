@@ -3,7 +3,6 @@ import '../css/style.css'
 import { Link } from 'react-router-dom'
 import valid from 'validator'
 import { useState } from 'react'
-import Footer from './Footer';
 
 const Signup = () => {
     const [Data, setData] = useState({
@@ -99,7 +98,6 @@ const Signup = () => {
                     <h6>Already registered ! <Link to="/login" className="text-decoration-none">Login</Link></h6>
                 </div>
             </form>
-            <Footer />
         </>
     )
 }
