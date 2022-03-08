@@ -36,7 +36,7 @@ const DataFetching = () => {
                     <h1 className="text-secondary alert-message" id="message" style={{ margin: "200px", height: "100vh", textShadow: "none", fontSize: "2rem" }}> </h1> :
                     <div className="fetch-data">
                         {
-                        Data.map((data, index) => {
+                        Data.forEach((data, index) => {
                             return (
                                 <div key={index}>
                                     <Card className="card" style={{ width: "15rem" }}>
