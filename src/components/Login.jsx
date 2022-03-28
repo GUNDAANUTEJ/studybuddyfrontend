@@ -4,9 +4,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import valid from 'validator'
 import { useState } from 'react'
 import Footer from './Footer';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Login = () => {
 
+    const { loginWithRedirect } = useAuth0();
     const navigate = useNavigate();
     const [Email, setEmail] = useState("")
     const [Pass, setPass] = useState("")
