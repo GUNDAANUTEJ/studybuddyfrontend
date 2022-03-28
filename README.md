@@ -1,7 +1,7 @@
 # Study Buddy Frontend
 
 
-## Documentation site link : https://github.com/GUNDAANUTEJ/study-buddy-doc
+## [Documentation site link](https://github.com/GUNDAANUTEJ/study-buddy-doc)
 
 ## [Back-end Github Repository link](https://github.com/GUNDAANUTEJ/StudyBuddy)
 
