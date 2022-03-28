@@ -4,9 +4,11 @@ import axios from 'axios'
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Index = () => {
-
+    
+    const { isAuthenticated, user, isLoading } = useAuth0();
     const navigator = useNavigate();
 
     useEffect(() => {
@@ -24,8 +26,26 @@ const Index = () => {
         callMethod();
     }, [navigator])
 
+    const getToken = async () => {
+        let email = user.email;
+//         console.log(email);
+        await axios.post("https://study-buddy-bckend.herokuapp.com/getToken", { email })
+            .then((result) => {
+                if (result.data.success) {
+                    localStorage.setItem("token", result.data.token);
+                    navigator('/home');
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+    }
+
+    if (isAuthenticated) {
+        getToken();
+    }
+    
     return (
-        <>
+        !isLoading && (<>
             <div className="container">
                 <h1 className="mt-5 py-5" style={{ background: "none", backdropFilter: "none", fontSize: "50px" }}>Bearcat Study Buddy</h1>
                 <div className="d-flex justify-content-around">
@@ -34,7 +54,7 @@ const Index = () => {
                 </div>
             </div>
             <Footer />
-        </>
+        </>)
     )
 }
 
