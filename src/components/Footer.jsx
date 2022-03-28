@@ -8,6 +8,8 @@ function Footer() {
                 <a href="https://github.com/GUNDAANUTEJ/studybuddyfrontend">Frontend</a>
                 <a href="https://github.com/GUNDAANUTEJ/StudyBuddy">Backend</a>
                 <a href="https://github.com/GUNDAANUTEJ/StudyBuddy/projects/1">Project Board</a>
+                <a href="https://github.com/GUNDAANUTEJ/StudyBuddy/wiki">Wiki</a>
+                <a href="https://github.com/GUNDAANUTEJ/StudyBuddy/actions">Actions</a>
             </div>
         </footer>
     </>
