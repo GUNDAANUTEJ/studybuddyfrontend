@@ -3,15 +3,22 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import SidebarData from './SidebarData'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
-import "./sidebar.css"
+import "./sidebar.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Sidebar = () => {
 
+    const { logout } = useAuth0();    
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
             {props}
         </Tooltip>
     );
+    
+    const logOut = () => {
+        localStorage.removeItem('token');
+        logout({ returnTo: window.location.origin });
+    }
 
     return (
         <>
@@ -42,6 +49,15 @@ const Sidebar = () => {
                                 )
                             })
                         }
+                        <li className="nav-item">
+                            <OverlayTrigger
+                                placement="right"
+                                overlay={renderTooltip("Logout")}>
+                                <a onClick={logOut} className="logout nav-link py-3 border-bottom text-black">
+                                    <i className="fas fa-sign-out" />
+                                </a>
+                            </OverlayTrigger>
+                        </li>
                     </ul>
                 </div>
 
