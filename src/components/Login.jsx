@@ -62,6 +62,9 @@ const Login = () => {
                     <h6 className="text-white">New user ! <Link to="/signup" className="text-decoration-none">SignUp</Link></h6>
                 </div>
             </form>
+            <div className="d-flex justify-content-center">
+                <button onClick={() => loginWithRedirect()} className="btn py-1 px-5 text-white" style={{ backgroundColor: "#394b59", boxShadow: "0px 3px 5px black" }}>Login By Auth0</button>
+            </div>
             <Footer />
         </>
     )
