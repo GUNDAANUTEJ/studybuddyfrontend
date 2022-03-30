@@ -32,7 +32,7 @@ const Index = () => {
             name: user.name
         }
         console.log(data);
-        await axios.post("http://localhost:3300/loginWithGithub", data)
+        await axios.post("http://study-buddy-bckend.herokuapp.com/loginWithGithub", data)
             .then((result) => {
                 console.log(result);
                 if (result.data.success) {
