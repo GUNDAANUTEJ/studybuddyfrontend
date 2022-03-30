@@ -3,12 +3,11 @@ import '../css/style.css'
 import { Link } from 'react-router-dom'
 import valid from 'validator'
 import { useState } from 'react'
+import Footer from './Footer';
 
 const Signup = () => {
     const [Data, setData] = useState({
-        fname: "",
-        mname: "",
-        lname: "",
+        name:"",
         sid: "",
         email: "",
         mobile: "",
@@ -26,7 +25,7 @@ const Signup = () => {
     const validation = async (event) => {
         event.preventDefault()
         console.log(Data)
-        const { fname, mname, lname, sid, email, mobile, bod, password } = Data
+        const { name, sid, email, mobile, bod, password } = Data
         if (!(valid.isEmail(Data.email)) || !(Data.password.length >= 8)) {
             alert('enter valid email or strong password!!!')
         } else {
@@ -36,7 +35,7 @@ const Signup = () => {
                     "content-type": "application/json"
                 },
                 body: JSON.stringify({
-                    fname, mname, lname, sid, email, mobile, bod, password
+                    name, sid, email, mobile, bod, password
                 })
             }).then(async (data) => {
                 return await data.json();
@@ -59,16 +58,8 @@ const Signup = () => {
             <form method="POST" className="signup-form mb-2 my-2" onSubmit={validation}>
                 <h1 className="my-4 pb-2">Signup</h1>
                 <div className="mb-3 mx-3">
-                    <label htmlFor="fname" className="form-label">First name :</label>
-                    <input type="text" name="fname" id="fname" className="form-control" value={Data.fname} onChange={insertData} required />
-                </div>
-                <div className="mb-3 mx-3">
-                    <label htmlFor="mname" className="form-label">Middle name(optional) :</label>
-                    <input type="text" name="mname" id="mname" className="form-control" value={Data.mname} onChange={insertData} />
-                </div>
-                <div className="mb-3 mx-3">
-                    <label htmlFor="lname" className="form-label">last name :</label>
-                    <input type="text" name="lname" id="lname" className="form-control" value={Data.lname} onChange={insertData} required />
+                    <label htmlFor="name" className="form-label">Name :</label>
+                    <input type="text" name="name" id="fname" className="form-control" value={Data.fname} onChange={insertData} required />
                 </div>
                 <div className="mb-3 mx-3">
                     <label htmlFor="sid" className="form-label">Student Number :</label>
@@ -98,6 +89,7 @@ const Signup = () => {
                     <h6>Already registered ! <Link to="/login" className="text-decoration-none">Login</Link></h6>
                 </div>
             </form>
+            <Footer />
         </>
     )
 }
