@@ -1,23 +1,23 @@
 const Notification = [{
-    from: "IPDC",
+    from: "Project Management",
     message: "Your syllabus is complete"
 }, {
-    from: "DBMS",
+    from: "Web Applications",
     message: "Create one mini project with include mysql database"
 }, {
-    from: "Data science",
+    from: "Android",
     message: "Your syllabus is complete"
 }, {
-    from: "COA",
-    message: "Assignment-10 has been reaturn"
+    from: "IOS",
+    message: "Assignment-10 has been updated"
 }, {
-    from: "Adv Web Devlopment",
+    from: "Data Visualization",
     message: "Class Test-4 will be taken on monday"
 }, {
-    from: "COA",
+    from: "GDP",
     message: "Practical-10 has been reaturn"
 }, {
-    from: "Data science",
+    from: "Application Design Patterns",
     message: "Practical-7 has been reaturn"
 }]
 
