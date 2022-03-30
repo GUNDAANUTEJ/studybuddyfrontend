@@ -27,13 +27,19 @@ const Index = () => {
     }, [navigator])
 
     const getToken = async () => {
-        let email = user.email;
-//         console.log(email);
-        await axios.post("https://study-buddy-bckend.herokuapp.com/getToken", { email })
+        let data = {
+            email: user.nickname,
+            name: user.name
+        }
+        console.log(data);
+        await axios.post("http://localhost:3300/loginWithGithub", data)
             .then((result) => {
+                console.log(result);
                 if (result.data.success) {
                     localStorage.setItem("token", result.data.token);
                     navigator('/home');
+                } else {
+                    alert(result.data.error);
                 }
             }).catch((err) => {
                 console.log(err);
